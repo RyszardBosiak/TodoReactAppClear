@@ -1,0 +1,162 @@
+// variables
+
+$color-done: lightgreen;
+$color-in-progress: lightskyblue;
+$color-list-border: rgb(243, 241, 241);
+$color-font-main: rgb(87, 87, 87);
+$tranistion-time: 0.3s;
+
+body {
+  margin: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  color: $color-font-main;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.todoList {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  form {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 30px;
+
+    input {
+      padding: 15px 5px;
+      width: 70%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border: 1px solid $color-list-border;
+    }
+
+    button {
+      width: 30%;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      background: $color-done;
+    }
+  }
+
+  button {
+    padding: 15px 5px;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    font-weight: bold;
+    color: $color-font-main;
+    border-color: $color-list-border;
+  }
+
+  li {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 15px 15px 15px 50px;
+    position: relative;
+    border-bottom: 1px solid $color-list-border;
+    transition-duration: $tranistion-time;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    height: 100%;
+
+    button {
+      margin-right: 5px;
+      width: 15%;
+      border-color: white;
+      background-color: white;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    label {
+      width: 40%;
+      display: flex;
+      align-items: center;
+    }
+
+    &:before {
+      content: "";
+      opacity: 0;
+      transition-duration: $tranistion-time;
+      width: 5px;
+      height: 20px;
+      position: absolute;
+    }
+
+    &.done {
+      background: $color-done;
+      &:before {
+        content: "";
+        display: block;
+        height: 20px;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        border-bottom: 5px solid $color-font-main;
+        border-right: 5px solid $color-font-main;
+        transform: rotate(45deg) translateY(-75%);
+        opacity: 1;
+      }
+    }
+
+    &.inProgress {
+      background: $color-in-progress;
+      &:before {
+        content: "...";
+        color: black;
+        opacity: 1;
+        left: 17px;
+        // line-height: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+
+    &.inPreparation {
+      &:before {
+        display: block;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        border: 2px solid $color-font-main;
+        transform: rotate(0) translateY(-50%);
+        opacity: 1;
+      }
+
+      button {
+        border-color: $color-list-border;
+      }
+    }
+  }
+}
