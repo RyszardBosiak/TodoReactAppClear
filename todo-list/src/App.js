@@ -1,7 +1,7 @@
 import React from "react";
-import "./App.scss";
-import List from "./components/List/index";
-import AppHeader from "./components/AppHeader/index";
+import "./styles/App.scss";
+import List from "./components/List/List";
+import AppHeader from "./components/AppHeader/AppHeader";
 
 function App() {
   return (

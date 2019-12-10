@@ -1,9 +1,10 @@
 import React from "react";
+import "./List.scss";
 
 const initialList = [
   { id: "a", name: "Water plants", status: "done" },
-  { id: "b", name: "Buy something to eat", status: "inProgress" },
-  { id: "c", name: "Book flight", status: "inPreparation" }
+  { id: "b", name: "Buy something to eat", status: "in-progress" },
+  { id: "c", name: "Book flight", status: "in-preparation" }
 ];
 
 // function component
@@ -44,35 +45,49 @@ const List = () => {
   };
 
   return (
-    <div className="todoList">
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={value} onChange={handleChange} />
-        <button type="submit">Add Item</button>
+    <div className="to-do-list-wrapper">
+      <form className="to-do-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={value}
+          onChange={handleChange}
+          className="to-do-form-input"
+        />
+        <button type="submit" className="button to-do-form-button">
+          Add Item
+        </button>
       </form>
 
-      <ul>
+      <ul className="to-do-list">
         {list.map(item => (
-          <li className={item.status} key={item.id}>
-            <label>{item.name}</label>
+          <li className={"to-do-list-element " + item.status} key={item.id}>
+            <span className="to-do-list-text">{item.name}</span>
             <button
               type="button"
-              onClick={() => setElementStatus(item.id, "inPreparation")}
+              onClick={() => setElementStatus(item.id, "in-preparation")}
+              className="button to-do-list-button"
             >
               In preparation
             </button>
             <button
               type="button"
-              onClick={() => setElementStatus(item.id, "inProgress")}
+              onClick={() => setElementStatus(item.id, "in-progress")}
+              className="button to-do-list-button"
             >
               In progress
             </button>
             <button
               type="button"
               onClick={() => setElementStatus(item.id, "done")}
+              className="button to-do-list-button"
             >
               Done
             </button>
-            <button type="button" onClick={() => handleClick(item.id)}>
+            <button
+              type="button"
+              onClick={() => handleClick(item.id)}
+              className="button to-do-list-button"
+            >
               Remove
             </button>
           </li>

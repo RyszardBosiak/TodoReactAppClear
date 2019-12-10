@@ -1,0 +1,127 @@
+@import "./../../styles/variables.scss";
+
+.to-do-list-wrapper {
+  .to-do-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .to-do-list-element {
+    display: flex;
+    list-style-type: none;
+    margin-left: 0;
+    padding: 15px 15px 15px 50px;
+    position: relative;
+    border-bottom: 1px solid $color-list-border;
+    transition-duration: $tranistion-duration;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .to-do-list-button {
+      margin-right: 5px;
+      width: 15%;
+      border-color: white;
+      background-color: white;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    .to-do-list-text {
+      width: 40%;
+      display: flex;
+      align-items: center;
+    }
+
+    &:before {
+      content: "";
+      opacity: 0;
+      transition-duration: $tranistion-duration;
+      width: 5px;
+      height: 20px;
+      position: absolute;
+    }
+
+    &.done {
+      background: $color-done;
+      &:before {
+        content: "";
+        display: block;
+        height: 20px;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        border-bottom: 5px solid $color-font-main;
+        border-right: 5px solid $color-font-main;
+        transform: rotate(45deg) translateY(-75%);
+        opacity: 1;
+      }
+    }
+
+    &.in-progress {
+      background: $color-in-progress;
+      &:before {
+        content: "...";
+        color: black;
+        opacity: 1;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+
+    &.in-preparation {
+      &:before {
+        display: block;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        border: 2px solid $color-font-main;
+        transform: rotate(0) translateY(-50%);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.to-do-form {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+
+  .to-do-form-input {
+    padding: 15px 5px;
+    width: 70%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid $color-list-border;
+  }
+
+  .to-do-form-button {
+    width: 30%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: $color-done;
+  }
+}
+
+.button {
+  border-color: $color-list-border;
+  padding: 15px 5px;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  font-weight: bold;
+  color: $color-font-main;
+  border-color: $color-list-border;
+}
