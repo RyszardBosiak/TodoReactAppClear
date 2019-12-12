@@ -1,5 +1,6 @@
 import React from "react";
 import "./List.scss";
+import ListItem from "../ListItem/ListItem";
 
 const initialList = [
   { id: "a", name: "Water plants", status: "done" },
@@ -21,7 +22,7 @@ const List = () => {
     // prevent to add empty list elements
     if (value) {
       setList(
-        list.concat({ id: Date.now(), name: value, status: "inPreparation" })
+        list.concat({ id: Date.now(), name: value, status: "in-preparation" })
       );
     }
 
@@ -32,8 +33,7 @@ const List = () => {
   };
 
   // remove current element from the list
-  const handleClick = id => {
-    console.log(id);
+  const removeElement = id => {
     setList(list.filter(item => item.id !== id));
   };
 
@@ -60,37 +60,14 @@ const List = () => {
 
       <ul className="to-do-list">
         {list.map(item => (
-          <li className={"to-do-list-element " + item.status} key={item.id}>
-            <span className="to-do-list-text">{item.name}</span>
-            <button
-              type="button"
-              onClick={() => setElementStatus(item.id, "in-preparation")}
-              className="button to-do-list-button"
-            >
-              In preparation
-            </button>
-            <button
-              type="button"
-              onClick={() => setElementStatus(item.id, "in-progress")}
-              className="button to-do-list-button"
-            >
-              In progress
-            </button>
-            <button
-              type="button"
-              onClick={() => setElementStatus(item.id, "done")}
-              className="button to-do-list-button"
-            >
-              Done
-            </button>
-            <button
-              type="button"
-              onClick={() => handleClick(item.id)}
-              className="button to-do-list-button"
-            >
-              Remove
-            </button>
-          </li>
+          <ListItem
+            name={item.name}
+            status={item.status}
+            key={item.id}
+            id={item.id}
+            setElementStatus={setElementStatus}
+            removeElement={removeElement}
+          ></ListItem>
         ))}
       </ul>
     </div>
