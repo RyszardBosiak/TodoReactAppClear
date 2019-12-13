@@ -33,12 +33,12 @@ const List = () => {
   };
 
   // remove current element from the list
-  const removeElement = id => {
+  const removeListItem = id => {
     setList(list.filter(item => item.id !== id));
   };
 
   // adding status to current element of the list
-  const setElementStatus = (id, status) => {
+  const setListItemStatus = (id, status) => {
     setList(
       list.map(item => (item.id === id ? { ...item, status: status } : item))
     );
@@ -65,8 +65,8 @@ const List = () => {
             status={item.status}
             key={item.id}
             id={item.id}
-            setElementStatus={setElementStatus}
-            removeElement={removeElement}
+            setListItemStatus={setListItemStatus}
+            removeListItem={removeListItem}
           ></ListItem>
         ))}
       </ul>

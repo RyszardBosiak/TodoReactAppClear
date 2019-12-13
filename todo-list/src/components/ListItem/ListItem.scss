@@ -1,0 +1,116 @@
+@import "./../../styles/variables.scss";
+
+.list-item {
+  display: flex;
+  list-style-type: none;
+  margin-left: 0;
+  padding: 15px;
+  position: relative;
+  border-bottom: 1px solid $color-list-border;
+  transition-duration: $tranistion-duration;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  .list-item-icon {
+    width: $icon-width;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: "";
+      opacity: 0;
+      transition-duration: $tranistion-duration;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      color: $color-font-main;
+      border-color: $color-font-main;
+    }
+  }
+
+  .list-item-content-wrapper {
+    width: calc(100% - #{$icon-width});
+    display: flex;
+    padding-left: 15px;
+
+    @media screen and (max-width: $bp-mobile) {
+      flex-direction: column;
+    }
+  }
+
+  .list-item-text {
+    width: 40%;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $bp-mobile) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .list-item-button-wrapper {
+    width: 60%;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $bp-mobile) {
+      width: 100%;
+    }
+
+    .list-item-button {
+      margin-right: 5px;
+      width: 25%;
+      border-color: $color-list-border;
+      background-color: white;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.done {
+    background: $color-done;
+    .list-item-icon {
+      &:before {
+        content: "";
+        display: block;
+        height: 20px;
+        width: 5px;
+        border-bottom: 5px solid;
+        border-right: 5px solid;
+        transform: rotate(45deg);
+        opacity: 1;
+      }
+    }
+  }
+
+  &.in-progress {
+    background: $color-in-progress;
+    .list-item-icon {
+      &:before {
+        content: "...";
+        opacity: 1;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.in-preparation {
+    .list-item-icon {
+      &:before {
+        display: block;
+        height: 20px;
+        width: 20px;
+        border: 2px solid;
+        opacity: 1;
+      }
+    }
+  }
+}
