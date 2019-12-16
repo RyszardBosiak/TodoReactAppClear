@@ -1,12 +1,15 @@
 import React from "react";
 import "./List.scss";
 import ListItem from "../ListItem/ListItem";
+import _ from "lodash";
 
 const initialList = [
   { id: "a", name: "Water plants", status: "done" },
   { id: "b", name: "Buy something to eat", status: "in-progress" },
   { id: "c", name: "Book flight", status: "in-preparation" }
 ];
+
+const inputId = _.uniqueId("form-input-");
 
 // function component
 const List = () => {
@@ -47,11 +50,15 @@ const List = () => {
   return (
     <div className="to-do-list-wrapper">
       <form className="to-do-form" onSubmit={handleSubmit}>
+        <label htmlFor={inputId} className="to-do-form-label">
+          Type item name:
+        </label>
         <input
           type="text"
           value={value}
           onChange={handleChange}
           className="to-do-form-input"
+          id={inputId}
         />
         <button type="submit" className="button to-do-form-button">
           Add Item
