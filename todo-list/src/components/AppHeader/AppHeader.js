@@ -1,10 +1,10 @@
 import React from "react";
 import "./AppHeader.scss";
 
-export default function AppHeader() {
+export default function AppHeader(props) {
   return (
     <div className="header">
-      <h1 className="header-headline">TODO List</h1>
+      <h1 className="header-headline">{props.content}</h1>
     </div>
   );
 }
