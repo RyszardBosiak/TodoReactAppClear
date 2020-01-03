@@ -2,19 +2,14 @@ import React from "react";
 import "./List.scss";
 import ListItem from "../ListItem/ListItem";
 import _ from "lodash";
-
-const initialList = [
-  { id: "a", name: "Water plants", status: "done" },
-  { id: "b", name: "Buy something to eat", status: "in-progress" },
-  { id: "c", name: "Book flight", status: "in-preparation" }
-];
+import PropTypes from "prop-types";
 
 const inputId = _.uniqueId("form-input-");
 
 // function component
-const List = () => {
+const List = props => {
   const [value, setValue] = React.useState(""); // Hook
-  const [list, setList] = React.useState(initialList); // Hook
+  const [list, setList] = React.useState(props.defaultList); // Hook
 
   const handleChange = event => {
     setValue(event.target.value);
@@ -79,6 +74,16 @@ const List = () => {
       </ul>
     </div>
   );
+};
+
+List.propTypes = {
+  defaultList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string,
+      status: PropTypes.string
+    })
+  )
 };
 
 export default List;

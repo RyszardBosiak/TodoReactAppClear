@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ListItem.scss";
 
 const ListItem = props => {
   // props - everything what you want to pass
+
   return (
     <li className={"list-item " + props.status} key={props.id}>
       <span className="list-item-icon"></span>
@@ -41,6 +43,14 @@ const ListItem = props => {
       </div>
     </li>
   );
+};
+
+ListItem.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  name: PropTypes.string,
+  status: PropTypes.string,
+  removeListItem: PropTypes.func,
+  setListItemStatus: PropTypes.func
 };
 
 export default ListItem;
