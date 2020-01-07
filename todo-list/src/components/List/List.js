@@ -43,7 +43,7 @@ const List = props => {
   };
 
   return (
-    <div className="to-do-list-wrapper">
+    <div className="to-do-list-wrapper" data-testid="list">
       <form className="to-do-form" onSubmit={handleSubmit}>
         <label htmlFor={inputId} className="to-do-form-label">
           Type item name:

@@ -4,7 +4,7 @@ import "./AppHeader.scss";
 
 const AppHeader = props => {
   return (
-    <div className="header">
+    <div className="header" data-testid="app-header">
       <h1 className="header-headline">{props.content}</h1>
     </div>
   );

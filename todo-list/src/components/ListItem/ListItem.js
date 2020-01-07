@@ -6,7 +6,11 @@ const ListItem = props => {
   // props - everything what you want to pass
 
   return (
-    <li className={"list-item " + props.status} key={props.id}>
+    <li
+      className={"list-item " + props.status}
+      key={props.id}
+      data-testid="list-item"
+    >
       <span className="list-item-icon"></span>
       <div className="list-item-content-wrapper">
         <span className="list-item-text">{props.name}</span>
