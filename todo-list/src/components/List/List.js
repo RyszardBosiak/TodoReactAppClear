@@ -54,8 +54,13 @@ const List = props => {
           onChange={handleChange}
           className="to-do-form-input"
           id={inputId}
+          data-testid="item-name-input"
         />
-        <button type="submit" className="button to-do-form-button">
+        <button
+          type="submit"
+          className="button to-do-form-button"
+          data-testid="form-submit-button"
+        >
           Add Item
         </button>
       </form>
