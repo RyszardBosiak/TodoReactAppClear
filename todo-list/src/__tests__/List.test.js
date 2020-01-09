@@ -10,26 +10,6 @@ const testData = [
 
 const inputTestData = Date.now().toString();
 
-expect.extend({
-  toBeTheSame(input, output) {
-    const pass = input === output;
-
-    if (pass) {
-      return {
-        message: () =>
-          `Input test string - "${input}" - is the same as last list element "${output}". New element was added.`,
-        pass: true
-      };
-    } else {
-      return {
-        message: () =>
-          `Input test string - "${input}" - is not the same as last list element "${output}". New element was not added.`,
-        pass: false
-      };
-    }
-  }
-});
-
 describe("Group of tests for List component", () => {
   it("List elements render without crashing", () => {
     const { getByTestId } = render(<List defaultList={testData} />);
@@ -53,6 +33,6 @@ describe("Group of tests for List component", () => {
     const listItemsText = list.querySelectorAll("li span");
     const lastListItemText = listItemsText[listItemsText.length - 1].innerHTML;
 
-    expect(inputTestData).toBeTheSame(lastListItemText);
+    expect(inputTestData).toEqual(lastListItemText);
   });
 });
