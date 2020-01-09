@@ -19,6 +19,7 @@ const ListItem = props => {
             type="button"
             onClick={() => props.setListItemStatus(props.id, "in-preparation")}
             className="button list-item-button"
+            data-testid="button-status-in-preparation"
           >
             In preparation
           </button>
@@ -26,6 +27,7 @@ const ListItem = props => {
             type="button"
             onClick={() => props.setListItemStatus(props.id, "in-progress")}
             className="button list-item-button"
+            data-testid="button-status-in-progress"
           >
             In progress
           </button>
@@ -33,6 +35,7 @@ const ListItem = props => {
             type="button"
             onClick={() => props.setListItemStatus(props.id, "done")}
             className="button list-item-button"
+            data-testid="button-status-done"
           >
             Done
           </button>
@@ -40,6 +43,7 @@ const ListItem = props => {
             type="button"
             onClick={() => props.removeListItem(props.id)}
             className="button list-item-button"
+            data-testid="button-remove"
           >
             Remove
           </button>
