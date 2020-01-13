@@ -1,8 +1,8 @@
 import React from "react";
-import "./List.scss";
-import ListItem from "../ListItem/ListItem";
-import _ from "lodash";
 import PropTypes from "prop-types";
+import _ from "lodash";
+import ListItem from "../ListItem/ListItem";
+import "./List.scss";
 
 const inputId = _.uniqueId("form-input-");
 
