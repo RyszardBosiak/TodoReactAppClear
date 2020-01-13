@@ -7,13 +7,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader content="TODO List"></AppHeader>
-      <List
-        defaultList={[
-          { id: "a", name: "Water plants", status: "done" },
-          { id: "b", name: "Buy something to eat", status: "in-progress" },
-          { id: "c", name: "Book flight", status: "in-preparation" }
-        ]}
-      ></List>
+      <List></List>
     </div>
   );
 }

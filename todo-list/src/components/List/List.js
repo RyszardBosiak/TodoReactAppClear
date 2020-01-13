@@ -91,4 +91,12 @@ List.propTypes = {
   )
 };
 
+List.defaultProps = {
+  defaultList: [
+    { id: "a", name: "Water plants", status: "done" },
+    { id: "b", name: "Buy something to eat", status: "in-progress" },
+    { id: "c", name: "Book flight", status: "in-preparation" }
+  ]
+};
+
 export default List;
