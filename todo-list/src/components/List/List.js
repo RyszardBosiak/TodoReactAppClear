@@ -17,6 +17,8 @@ const List = props => {
 
   // add element to the list
   const handleSubmit = event => {
+    event.preventDefault();
+
     // prevent to add empty list elements
     if (value) {
       setList(
@@ -26,8 +28,6 @@ const List = props => {
 
     // clear input value after added new element to the list
     setValue("");
-
-    event.preventDefault();
   };
 
   // remove current element from the list
