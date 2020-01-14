@@ -36,30 +36,32 @@
     width: calc(100% - #{$icon-width});
     display: flex;
     padding-left: 15px;
+    flex-direction: column;
 
-    @media screen and (max-width: $bp-mobile) {
-      flex-direction: column;
+    @media screen and (min-width: $bp-mobile) {
+      flex-direction: row;
     }
   }
 
   .list-item-text {
-    width: 40%;
+    width: 100%;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 
-    @media screen and (max-width: $bp-mobile) {
-      width: 100%;
-      margin-bottom: 10px;
+    @media screen and (min-width: $bp-mobile) {
+      width: 40%;
+      margin-bottom: 0;
     }
   }
 
   .list-item-button-wrapper {
-    width: 60%;
+    width: 100%;
     display: flex;
     align-items: center;
 
-    @media screen and (max-width: $bp-mobile) {
-      width: 100%;
+    @media screen and (min-width: $bp-mobile) {
+      width: 60%;
     }
 
     .list-item-button {
