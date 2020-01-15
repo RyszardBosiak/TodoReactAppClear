@@ -1,0 +1,49 @@
+@import "./../../styles/variables.scss";
+
+.to-do-list-wrapper {
+  .to-do-list {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.to-do-form {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+
+  .to-do-form-label {
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .to-do-form-input {
+    padding: 15px 5px;
+    width: 70%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid $color-list-border;
+  }
+
+  .to-do-form-button {
+    flex: 1;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: $color-done;
+  }
+}
+
+.button {
+  border-color: $color-list-border;
+  padding: 15px 5px;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  font-weight: bold;
+  color: $color-font-main;
+  border-color: $color-list-border;
+}
